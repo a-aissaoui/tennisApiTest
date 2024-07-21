@@ -1,4 +1,7 @@
 
+using tennisApiTest.Repositories;
+using tennisApiTest.Services;
+
 namespace tennisApiTest
 {
     public class Program
@@ -10,6 +13,10 @@ namespace tennisApiTest
             // Add services to the container.
 
             builder.Services.AddControllers();
+
+            builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+            builder.Services.AddScoped<IPlayerService, PlayerService>();
+
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
