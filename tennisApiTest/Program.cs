@@ -11,8 +11,11 @@ namespace tennisApiTest
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
+
+            //add logging
+            builder.Services.AddLogging(configure => configure.AddConsole());
+
 
             builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
             builder.Services.AddScoped<IPlayerService, PlayerService>();
@@ -27,7 +30,11 @@ namespace tennisApiTest
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TennisApi API V1");
+                    c.RoutePrefix = string.Empty; 
+                });
             }
 
             app.UseHttpsRedirection();

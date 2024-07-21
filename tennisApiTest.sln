@@ -5,6 +5,8 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tennisApiTest", "tennisApiTest\tennisApiTest.csproj", "{8C0461A0-A6E6-476E-9EC4-0BD407CE232B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tennisApiTest.Tests", "tennisApiTest.Tests\tennisApiTest.Tests.csproj", "{25890F3B-CFB6-4CCE-BFE2-5A70F2B19E79}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8C0461A0-A6E6-476E-9EC4-0BD407CE232B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C0461A0-A6E6-476E-9EC4-0BD407CE232B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C0461A0-A6E6-476E-9EC4-0BD407CE232B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25890F3B-CFB6-4CCE-BFE2-5A70F2B19E79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25890F3B-CFB6-4CCE-BFE2-5A70F2B19E79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25890F3B-CFB6-4CCE-BFE2-5A70F2B19E79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25890F3B-CFB6-4CCE-BFE2-5A70F2B19E79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
