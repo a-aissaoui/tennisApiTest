@@ -21,18 +21,20 @@ Cette API REST permet de gérer et de récupérer les statistiques des joueurs d
 ### Étapes pour exécuter l'application
 
 1. **Cloner le dépôt :**
-   => git clone https://github.com/aissaoabd/tennisApiTest.git
-   => cd tennisApiTest
-   => dotnet restore // Restaurer les packages NuGet
-   => dotnet build //  Construire la solution
+    1. git clone https://github.com/aissaoabd/tennisApiTest.git
+    2. cd tennisApiTest
+    3. dotnet restore // Restaurer les packages NuGet
+    4. dotnet build //  Construire la solution
    
 3. **Executer l'api :**
-   2) cd tennisApiTest
-   5) dotnet run // exécuter l'app
+    1. cd tennisApiTest
+    2. dotnet run // exécuter l'app
+  
       
 2. **Executer les tests :**
-   1) cd tennisApiTest.Tests
-   2) dotnet test
+   
+   1. cd tennisApiTest.Tests
+   2. dotnet test
 
 
 
