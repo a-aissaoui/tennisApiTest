@@ -10,35 +10,40 @@ namespace tennisApiTest
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllers();
-
-            //add logging
+            // add logging
             builder.Services.AddLogging(configure => configure.AddConsole());
 
+            // Add services to the container.
 
-            builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
-            builder.Services.AddScoped<IPlayerService, PlayerService>();
-
+            builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+            builder.Services.AddScoped<IPlayerService, PlayerService>();
+
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
+            // logging all requests on the console
+            app.Use(async (context, next) =>
             {
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "TennisApi API V1");
-                    c.RoutePrefix = string.Empty; 
-                });
-            }
+                var logger = app.Logger;
+                logger.LogInformation($"Request received for {context.Request.Method} {context.Request.Path}");
+                await next.Invoke();
+            });
 
-            app.UseHttpsRedirection();
 
+            // Configure Swagger and redirect to Swagger UI
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+                c.RoutePrefix = string.Empty; // Serve Swagger UI at application root
+            });
+
+
+            //app.UseHttpsRedirection();
             app.UseAuthorization();
 
 
@@ -46,5 +51,7 @@ namespace tennisApiTest
 
             app.Run();
         }
+
+
     }
 }
