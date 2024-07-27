@@ -35,7 +35,7 @@ namespace tennisApiTest.Services
 
                 Statistics statistics = new Statistics();
 
-                
+
                 if (players != null)
                 {
                     statistics = new Statistics
@@ -57,11 +57,12 @@ namespace tennisApiTest.Services
                 else
                 {
                     statistics = null;
-                    Console.WriteLine(("Liste des joueurs vide"));
+                    // retourner un message indiquant que la liste des joueurs est null
+                    Console.WriteLine(("Liste des joueurs null"));
                 }
 
                 return statistics;
-                
+
             }
             catch (Exception ex)
             {
@@ -82,6 +83,6 @@ namespace tennisApiTest.Services
             return heights[count / 2];
         }
 
-      
+
     }
 }
